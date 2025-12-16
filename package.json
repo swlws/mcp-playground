@@ -2,10 +2,11 @@
   "name": "mcp-playground",
   "version": "1.0.0",
   "description": "MCP Playground",
-  "main": "src/index.mjs",
+  "main": "index.mjs",
   "type": "module",
   "scripts": {
-    "min-mcp": "node __min-mcp/index.mjs"
+    "min-mcp": "node min-mcp/index.mjs",
+    "fe-mcp": "node frontend-mcp-server/index.mjs"
   },
   "repository": {
     "type": "git",
