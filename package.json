@@ -5,7 +5,7 @@
   "main": "src/index.mjs",
   "type": "module",
   "scripts": {
-    "mcp-demo": "node src/index.mjs"
+    "min-mcp": "node __min-mcp/index.mjs"
   },
   "repository": {
     "type": "git",
@@ -17,5 +17,9 @@
   "bugs": {
     "url": "https://github.com/swlws/mcp-playground/issues"
   },
-  "homepage": "https://github.com/swlws/mcp-playground#readme"
+  "homepage": "https://github.com/swlws/mcp-playground#readme",
+  "devDependencies": {
+    "@babel/parser": "^7.28.5",
+    "@babel/traverse": "^7.28.5"
+  }
 }
