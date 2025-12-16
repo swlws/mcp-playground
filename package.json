@@ -1,0 +1,21 @@
+{
+  "name": "mcp-playground",
+  "version": "1.0.0",
+  "description": "MCP Playground",
+  "main": "src/index.mjs",
+  "type": "module",
+  "scripts": {
+    "mcp-demo": "node src/index.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/swlws/mcp-playground.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/swlws/mcp-playground/issues"
+  },
+  "homepage": "https://github.com/swlws/mcp-playground#readme"
+}
