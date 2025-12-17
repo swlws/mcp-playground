@@ -2,6 +2,7 @@ import { analyzeFile } from './analyzeFile.mjs';
 import { analyzeHubsTool } from './analyzeHubs.mjs';
 import { analyzeProjectTool } from './analyzeProject.mjs';
 import { impactAnalysisTool } from './impactAnalysis.mjs';
+import { impactAnalysisGitTool } from './impactAnalysisGit.mjs';
 
 export const tools = [
   {
@@ -53,6 +54,20 @@ export const tools = [
       required: ['rootDir', 'entry'],
     },
   },
+  {
+    name: 'impact_analysis_git',
+    description: 'Impact analysis based on git diff',
+    inputSchema: {
+      type: 'object',
+      properties: {
+        rootDir: { type: 'string' },
+        entry: { type: 'string' },
+        base: { type: 'string' },
+        head: { type: 'string' },
+      },
+      required: ['rootDir', 'entry'],
+    },
+  },
 ];
 
 export async function callTool(name, args) {
@@ -67,6 +82,9 @@ export async function callTool(name, args) {
   }
   if (name === 'analyze_hubs') {
     return analyzeHubsTool(args);
+  }
+  if (name === 'impact_analysis_git') {
+    return impactAnalysisGitTool(args);
   }
   throw new Error('Unknown tool');
 }
