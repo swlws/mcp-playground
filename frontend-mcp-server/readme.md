@@ -7,3 +7,7 @@
 分析文件
 
 > { "jsonrpc": "2.0", "id": 2, "method": "tools/call", "params": { "name": "analyze_file", "arguments": { "filePath": "D://OpenSource/mcp-playground/frontend-mcp-server/resources/readFile.mjs" } } }
+
+解析工程中的文件依赖图（DAG 图）
+
+> { "jsonrpc": "2.0", "id": 3, "method": "tools/call", "params": { "name": "analyze_project", "arguments": { "rootDir": "D://OpenSource/react-playground/src/components/advanced-search", "entry": "index.jsx" } } }
