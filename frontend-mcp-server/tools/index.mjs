@@ -1,5 +1,6 @@
 import { analyzeFile } from './analyzeFile.mjs';
 import { analyzeProjectTool } from './analyzeProject.mjs';
+import { impactAnalysisTool } from './impactAnalysis.mjs';
 
 export const tools = [
   {
@@ -25,6 +26,19 @@ export const tools = [
       required: ['rootDir', 'entry'],
     },
   },
+  {
+    name: 'impact_analysis',
+    description: 'Analyze impact of a file change',
+    inputSchema: {
+      type: 'object',
+      properties: {
+        rootDir: { type: 'string' },
+        entry: { type: 'string' },
+        changedFile: { type: 'string' },
+      },
+      required: ['rootDir', 'entry', 'changedFile'],
+    },
+  },
 ];
 
 export async function callTool(name, args) {
@@ -33,6 +47,9 @@ export async function callTool(name, args) {
   }
   if (name === 'analyze_project') {
     return analyzeProjectTool(args);
+  }
+  if (name === 'impact_analysis') {
+    return impactAnalysisTool(args);
   }
   throw new Error('Unknown tool');
 }

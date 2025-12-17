@@ -11,3 +11,7 @@
 解析工程中的文件依赖图（DAG 图）
 
 > { "jsonrpc": "2.0", "id": 3, "method": "tools/call", "params": { "name": "analyze_project", "arguments": { "rootDir": "D://OpenSource/react-playground/src/components/advanced-search", "entry": "index.jsx" } } }
+
+文件改动后，分析所有被影响的文件
+
+> { "jsonrpc": "2.0", "id": 3, "method": "tools/call", "params": { "name": "impact_analysis", "arguments": { "rootDir": "D://OpenSource/react-playground/src/components/advanced-search", "entry": "index.jsx", "changedFile": "D://OpenSource/react-playground/src/components/advanced-search/constant.js"} } }

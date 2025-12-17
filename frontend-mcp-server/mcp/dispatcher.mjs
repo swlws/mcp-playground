@@ -39,6 +39,7 @@ export async function dispatch({ id, method, params }) {
 
     return error(id, -32601, 'Method not found');
   } catch (e) {
+    console.error(e);
     return error(id, -32000, e.message);
   }
 }
