@@ -1,4 +1,5 @@
 import { analyzeFile } from './analyzeFile.mjs';
+import { analyzeHubsTool } from './analyzeHubs.mjs';
 import { analyzeProjectTool } from './analyzeProject.mjs';
 import { impactAnalysisTool } from './impactAnalysis.mjs';
 
@@ -39,6 +40,19 @@ export const tools = [
       required: ['rootDir', 'entry', 'changedFile'],
     },
   },
+  {
+    name: 'analyze_hubs',
+    description: 'Identify core modules (hub analysis)',
+    inputSchema: {
+      type: 'object',
+      properties: {
+        rootDir: { type: 'string' },
+        entry: { type: 'string' },
+        topN: { type: 'number' },
+      },
+      required: ['rootDir', 'entry'],
+    },
+  },
 ];
 
 export async function callTool(name, args) {
@@ -50,6 +64,9 @@ export async function callTool(name, args) {
   }
   if (name === 'impact_analysis') {
     return impactAnalysisTool(args);
+  }
+  if (name === 'analyze_hubs') {
+    return analyzeHubsTool(args);
   }
   throw new Error('Unknown tool');
 }

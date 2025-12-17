@@ -15,3 +15,7 @@
 文件改动后，分析所有被影响的文件
 
 > { "jsonrpc": "2.0", "id": 3, "method": "tools/call", "params": { "name": "impact_analysis", "arguments": { "rootDir": "D://OpenSource/react-playground/src/components/advanced-search", "entry": "index.jsx", "changedFile": "D://OpenSource/react-playground/src/components/advanced-search/constant.js"} } }
+
+识别核心模块
+
+> { "jsonrpc": "2.0", "id": 3, "method": "tools/call", "params": { "name": "analyze_hubs", "arguments": { "rootDir": "D://OpenSource/react-playground/src/components/advanced-search", "entry": "index.jsx"} } }
