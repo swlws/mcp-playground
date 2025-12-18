@@ -1,5 +1,4 @@
-import path from 'path';
-import { analyzeProject } from '../analyzer/project.mjs';
+import { analyzeProject } from '../tool-set/analyze-project/project.mjs';
 import { buildReverseGraph } from '../analyzer/reverseGraph.mjs';
 import { analyzeImpact } from '../analyzer/impact.mjs';
 import { toDoubleSlashPosixPath } from '../utils/path.mjs';

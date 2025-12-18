@@ -1,4 +1,4 @@
-import { analyzeProject } from '../analyzer/project.mjs';
+import { analyzeProject } from '../tool-set/analyze-project/project.mjs';
 import { getChangedFiles } from '../analyzer/gitDiff.mjs';
 import { analyzeGitImpact } from '../analyzer/impactGit.mjs';
 

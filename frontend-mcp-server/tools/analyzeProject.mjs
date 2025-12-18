@@ -1,5 +1,5 @@
-import { analyzeProject } from '../analyzer/project.mjs';
-import { detectCycles } from '../analyzer/cycle.mjs';
+import { analyzeProject } from '../tool-set/analyze-project/project.mjs';
+import { detectCycles } from '../tool-set/analyze-project/cycle.mjs';
 
 export async function analyzeProjectTool({ rootDir, entry }) {
   const graph = analyzeProject(rootDir, entry);

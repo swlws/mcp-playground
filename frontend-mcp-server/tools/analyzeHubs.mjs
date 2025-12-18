@@ -1,4 +1,4 @@
-import { analyzeProject } from '../analyzer/project.mjs';
+import { analyzeProject } from '../tool-set/analyze-project/project.mjs';
 import { analyzeHubs } from '../analyzer/hub.mjs';
 
 export async function analyzeHubsTool({ rootDir, entry, topN = 10 }) {

@@ -1,4 +1,4 @@
-import { toDoubleSlashPosixPath } from '../utils/path.mjs';
+import { toDoubleSlashPosixPath } from '../../utils/path.mjs';
 
 // analyzer/graph.mjs
 export function createGraph() {
