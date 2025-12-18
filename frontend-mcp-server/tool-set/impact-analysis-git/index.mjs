@@ -1,6 +1,6 @@
-import { analyzeProject } from '../tool-set/analyze-project/project.mjs';
-import { getChangedFiles } from '../tool-set/impact-analysis-git/git-diff.mjs';
-import { analyzeGitImpact } from '../tool-set/impact-analysis-git/impact-git.mjs';
+import { analyzeProject } from '../analyze-project/project.mjs';
+import { getChangedFiles } from '../impact-analysis-git/git-diff.mjs';
+import { analyzeGitImpact } from '../impact-analysis-git/impact-git.mjs';
 
 export async function impactAnalysisGitTool({
   rootDir,

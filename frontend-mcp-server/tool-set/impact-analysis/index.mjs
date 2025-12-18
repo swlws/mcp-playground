@@ -1,7 +1,7 @@
-import { analyzeProject } from '../tool-set/analyze-project/project.mjs';
-import { buildReverseGraph } from '../tool-set/impact-analysis/reverse-graph.mjs';
-import { analyzeImpact } from '../tool-set/impact-analysis/impact.mjs';
-import { toDoubleSlashPosixPath } from '../utils/path.mjs';
+import { analyzeProject } from '../analyze-project/project.mjs';
+import { buildReverseGraph } from '../impact-analysis/reverse-graph.mjs';
+import { analyzeImpact } from '../impact-analysis/impact.mjs';
+import { toDoubleSlashPosixPath } from '../../utils/path.mjs';
 
 export async function impactAnalysisTool({ rootDir, entry, changedFile }) {
   changedFile = toDoubleSlashPosixPath(changedFile);

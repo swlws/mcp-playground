@@ -1,8 +1,8 @@
-import { analyzeFile } from './analyze-file.mjs';
-import { analyzeHubsTool } from './analyze-hubs.mjs';
-import { analyzeProjectTool } from './analyze-project.mjs';
-import { impactAnalysisTool } from './impact-analysis.mjs';
-import { impactAnalysisGitTool } from './impact-analysis-git.mjs';
+import { analyzeFile } from '../tool-set/analyze-file/index.mjs';
+import { analyzeHubsTool } from '../tool-set/analyze-hubs/index.mjs';
+import { analyzeProjectTool } from '../tool-set/analyze-project/index.mjs';
+import { impactAnalysisTool } from '../tool-set/impact-analysis/index.mjs';
+import { impactAnalysisGitTool } from '../tool-set/impact-analysis-git/index.mjs';
 
 export const tools = [
   {

@@ -1,5 +1,5 @@
-import { analyzeProject } from '../tool-set/analyze-project/project.mjs';
-import { analyzeHubs } from '../tool-set/analyze-hubs/hub.mjs';
+import { analyzeProject } from '../analyze-project/project.mjs';
+import { analyzeHubs } from '../analyze-hubs/hub.mjs';
 
 export async function analyzeHubsTool({ rootDir, entry, topN = 10 }) {
   const graph = analyzeProject(rootDir, entry);
