@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { collectDeps } from './collectDeps.mjs';
-import { resolveImport } from './resolvePath.mjs';
+import { collectDeps } from './collect-deps.mjs';
+import { resolveImport } from './resolve-path.mjs';
 import { createGraph, addEdge } from './graph.mjs';
 
 export function analyzeProject(rootDir, entry) {

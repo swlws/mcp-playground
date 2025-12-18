@@ -1,5 +1,5 @@
 import { analyzeProject } from '../tool-set/analyze-project/project.mjs';
-import { buildReverseGraph } from '../tool-set/impact-analysis/reverseGraph.mjs';
+import { buildReverseGraph } from '../tool-set/impact-analysis/reverse-graph.mjs';
 import { analyzeImpact } from '../tool-set/impact-analysis/impact.mjs';
 import { toDoubleSlashPosixPath } from '../utils/path.mjs';
 
