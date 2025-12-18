@@ -1,14 +1,16 @@
 import { analyzeHubs } from '../analyze-hubs/hub.mjs';
-import { ENUM_TOOL_NAMES } from '../../tools/index.mjs';
+import { ENUM_TOOL_NAMES } from '../../tools/enum.mjs';
+import { ctxRpcCall } from '../../utils/ctx-rpc-call.mjs';
 
 export async function analyzeHubsTool({ rootDir, entry, topN = 10 }, ctx) {
-  const projectInfo = await ctx.rpc.call(ENUM_TOOL_NAMES.ANALYZE_PROJECT, {
-    rootDir,
-    entry,
-  });
-  const {
-    json: { nodes, edges },
-  } = projectInfo.content[0];
+  const { nodes, edges } = await ctxRpcCall(
+    ctx,
+    ENUM_TOOL_NAMES.ANALYZE_PROJECT,
+    {
+      rootDir,
+      entry,
+    }
+  );
 
   const hubs = analyzeHubs(nodes, edges).slice(0, topN);
 

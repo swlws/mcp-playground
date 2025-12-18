@@ -1,4 +1,5 @@
-import { ENUM_TOOL_NAMES } from '../../tools/index.mjs';
+import { ENUM_TOOL_NAMES } from '../../tools/enum.mjs';
+import { ctxRpcCall } from '../../utils/ctx-rpc-call.mjs';
 import { getChangedFiles } from './git-diff.mjs';
 import { analyzeGitImpact } from './impact-git.mjs';
 
@@ -8,13 +9,10 @@ export async function impactAnalysisGitTool(
 ) {
   const changedFiles = getChangedFiles(gitRootDir, base, head);
 
-  const projectInfo = await ctx.rpc.call(ENUM_TOOL_NAMES.ANALYZE_PROJECT, {
+  const { edges } = await ctxRpcCall(ctx, ENUM_TOOL_NAMES.ANALYZE_PROJECT, {
     rootDir,
     entry,
   });
-  const {
-    json: { edges },
-  } = projectInfo.content[0];
 
   const impact = analyzeGitImpact(edges, changedFiles);
 

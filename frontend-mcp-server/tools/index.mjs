@@ -3,14 +3,7 @@ import { analyzeHubsTool } from '../tool-set/analyze-hubs/index.mjs';
 import { analyzeProjectTool } from '../tool-set/analyze-project/index.mjs';
 import { impactAnalysisTool } from '../tool-set/impact-analysis/index.mjs';
 import { impactAnalysisGitTool } from '../tool-set/impact-analysis-git/index.mjs';
-
-export const ENUM_TOOL_NAMES = {
-  ANALYZE_FILE: 'analyze_file',
-  ANALYZE_PROJECT: 'analyze_project',
-  IMPACT_ANALYSIS: 'impact_analysis',
-  ANALYZE_HUBS: 'analyze_hubs',
-  IMPACT_ANALYSIS_GIT: 'impact_analysis_git',
-};
+import { ENUM_TOOL_NAMES } from './enum.mjs';
 
 export const tools = [
   {
