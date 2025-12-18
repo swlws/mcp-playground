@@ -1,5 +1,5 @@
 import fs from 'node:fs';
-import { parseAndAnalyze } from '../analyzer/frontend.mjs';
+import { parseAndAnalyze } from '../tool-set/analyze-file/index.mjs';
 
 export async function analyzeFile(filePath) {
   const code = fs.readFileSync(filePath, 'utf-8');
