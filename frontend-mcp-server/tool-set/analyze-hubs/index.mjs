@@ -1,4 +1,4 @@
-import { analyzeHubs } from '../analyze-hubs/hub.mjs';
+import { analyzeHubs } from './hub.mjs';
 import { ENUM_TOOL_NAMES } from '../../tools/enum.mjs';
 import { ctxRpcCall } from '../../utils/ctx-rpc-call.mjs';
 

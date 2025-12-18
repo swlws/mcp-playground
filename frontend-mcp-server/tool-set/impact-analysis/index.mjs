@@ -1,5 +1,5 @@
-import { buildReverseGraph } from '../impact-analysis/reverse-graph.mjs';
-import { analyzeImpact } from '../impact-analysis/impact.mjs';
+import { buildReverseGraph } from './reverse-graph.mjs';
+import { analyzeImpact } from './impact.mjs';
 import { toDoubleSlashPosixPath } from '../../utils/path.mjs';
 import { ENUM_TOOL_NAMES } from '../../tools/enum.mjs';
 import { ctxRpcCall } from '../../utils/ctx-rpc-call.mjs';
