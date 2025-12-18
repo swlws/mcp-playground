@@ -4,4 +4,5 @@ export const ENUM_TOOL_NAMES = {
   IMPACT_ANALYSIS: 'impact_analysis',
   ANALYZE_HUBS: 'analyze_hubs',
   IMPACT_ANALYSIS_GIT: 'impact_analysis_git',
+  ANALYZE_CODEBASE: 'analyze_codebase',
 };
