@@ -4,9 +4,17 @@ import { analyzeProjectTool } from '../tool-set/analyze-project/index.mjs';
 import { impactAnalysisTool } from '../tool-set/impact-analysis/index.mjs';
 import { impactAnalysisGitTool } from '../tool-set/impact-analysis-git/index.mjs';
 
+export const ENUM_TOOL_NAMES = {
+  ANALYZE_FILE: 'analyze_file',
+  ANALYZE_PROJECT: 'analyze_project',
+  IMPACT_ANALYSIS: 'impact_analysis',
+  ANALYZE_HUBS: 'analyze_hubs',
+  IMPACT_ANALYSIS_GIT: 'impact_analysis_git',
+};
+
 export const tools = [
   {
-    name: 'analyze_file',
+    name: ENUM_TOOL_NAMES.ANALYZE_FILE,
     description: 'Analyze frontend source file',
     inputSchema: {
       type: 'object',
@@ -18,7 +26,7 @@ export const tools = [
     handler: analyzeFile,
   },
   {
-    name: 'analyze_project',
+    name: ENUM_TOOL_NAMES.ANALYZE_PROJECT,
     description: 'Analyze frontend project dependency graph (DAG)',
     inputSchema: {
       type: 'object',
@@ -31,7 +39,7 @@ export const tools = [
     handler: analyzeProjectTool,
   },
   {
-    name: 'impact_analysis',
+    name: ENUM_TOOL_NAMES.IMPACT_ANALYSIS,
     description: 'Analyze impact of a file change',
     inputSchema: {
       type: 'object',
@@ -45,7 +53,7 @@ export const tools = [
     handler: impactAnalysisTool,
   },
   {
-    name: 'analyze_hubs',
+    name: ENUM_TOOL_NAMES.ANALYZE_HUBS,
     description: 'Identify core modules (hub analysis)',
     inputSchema: {
       type: 'object',
@@ -59,7 +67,7 @@ export const tools = [
     handler: analyzeHubsTool,
   },
   {
-    name: 'impact_analysis_git',
+    name: ENUM_TOOL_NAMES.IMPACT_ANALYSIS_GIT,
     description: 'Impact analysis based on git diff',
     inputSchema: {
       type: 'object',

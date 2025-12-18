@@ -1,6 +1,5 @@
 import fs from 'node:fs';
 import { fileURLToPath } from 'node:url';
-import path from 'node:path';
 
 export async function readFileResource(uri) {
   const filePath = fileURLToPath(uri);
