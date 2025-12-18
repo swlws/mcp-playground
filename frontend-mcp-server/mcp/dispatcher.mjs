@@ -1,6 +1,43 @@
-import { tools, callTool } from '../tools/index.mjs';
+import { tools } from '../tools/index.mjs';
 import { readResource } from '../resources/index.mjs';
 import { capabilities } from './capabilities.mjs';
+
+class ToolDispatcher {
+  constructor() {
+    this.pending = new Map();
+
+    this.toolMap = tools.reduce((acc, tool) => {
+      acc[tool.name] = tool;
+      return acc;
+    }, {});
+  }
+
+  /** MCP 对外入口 */
+  async handleMcpCall({ name, arguments: args }) {
+    return this.callTool(name, args);
+  }
+
+  /** 内部 RPC 调用 */
+  async callTool(toolName, args) {
+    const tool = this.toolMap[toolName];
+    if (!tool) {
+      throw new Error(`Tool not found: ${toolName}`);
+    }
+
+    return tool.handler(args, {
+      rpc: this.createRpcContext(),
+    });
+  }
+
+  /** 注入给 tool 的 RPC 能力 */
+  createRpcContext() {
+    return {
+      call: (tool, args) => this.callTool(tool, args),
+    };
+  }
+}
+
+const toolDispatcher = new ToolDispatcher();
 
 export async function dispatch({ id, method, params }) {
   try {
@@ -21,11 +58,10 @@ export async function dispatch({ id, method, params }) {
     }
 
     if (method === 'tools/call') {
-      const { name, arguments: args } = params;
       return {
         jsonrpc: '2.0',
         id,
-        result: await callTool(name, args),
+        result: await toolDispatcher.handleMcpCall(params),
       };
     }
 

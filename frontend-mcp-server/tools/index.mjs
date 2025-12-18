@@ -15,6 +15,7 @@ export const tools = [
       },
       required: ['filePath'],
     },
+    handler: analyzeFile,
   },
   {
     name: 'analyze_project',
@@ -27,6 +28,7 @@ export const tools = [
       },
       required: ['rootDir', 'entry'],
     },
+    handler: analyzeProjectTool,
   },
   {
     name: 'impact_analysis',
@@ -40,6 +42,7 @@ export const tools = [
       },
       required: ['rootDir', 'entry', 'changedFile'],
     },
+    handler: impactAnalysisTool,
   },
   {
     name: 'analyze_hubs',
@@ -53,6 +56,7 @@ export const tools = [
       },
       required: ['rootDir', 'entry'],
     },
+    handler: analyzeHubsTool,
   },
   {
     name: 'impact_analysis_git',
@@ -68,24 +72,6 @@ export const tools = [
       },
       required: ['rootDir', 'entry', 'gitRootDir'],
     },
+    handler: impactAnalysisGitTool,
   },
 ];
-
-export async function callTool(name, args) {
-  if (name === 'analyze_file') {
-    return analyzeFile(args.filePath);
-  }
-  if (name === 'analyze_project') {
-    return analyzeProjectTool(args);
-  }
-  if (name === 'impact_analysis') {
-    return impactAnalysisTool(args);
-  }
-  if (name === 'analyze_hubs') {
-    return analyzeHubsTool(args);
-  }
-  if (name === 'impact_analysis_git') {
-    return impactAnalysisGitTool(args);
-  }
-  throw new Error('Unknown tool');
-}
