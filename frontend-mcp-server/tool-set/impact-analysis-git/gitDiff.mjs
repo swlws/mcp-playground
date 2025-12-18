@@ -1,6 +1,6 @@
 import { execSync } from 'node:child_process';
 import path from 'node:path';
-import { toDoubleSlashPosixPath } from '../utils/path.mjs';
+import { toDoubleSlashPosixPath } from '../../utils/path.mjs';
 
 const FRONTEND_EXT = ['.ts', '.tsx', '.js', '.jsx', '.vue'];
 

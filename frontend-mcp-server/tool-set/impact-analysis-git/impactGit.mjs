@@ -1,5 +1,5 @@
-import { analyzeImpact } from '../tool-set/impact-analysis/impact.mjs';
-import { buildReverseGraph } from '../tool-set/impact-analysis/reverseGraph.mjs';
+import { analyzeImpact } from '../impact-analysis/impact.mjs';
+import { buildReverseGraph } from '../impact-analysis/reverseGraph.mjs';
 
 export function analyzeGitImpact(graph, changedFiles) {
   const edges = [...graph.edges.entries()].map(([from, tos]) => ({
