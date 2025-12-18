@@ -5,10 +5,11 @@ import { analyzeGitImpact } from '../analyzer/impactGit.mjs';
 export async function impactAnalysisGitTool({
   rootDir,
   entry,
+  gitRootDir,
   base = 'HEAD~1',
   head = 'HEAD',
 }) {
-  const changedFiles = getChangedFiles(rootDir, base, head);
+  const changedFiles = getChangedFiles(gitRootDir, base, head);
 
   const graph = analyzeProject(rootDir, entry);
 

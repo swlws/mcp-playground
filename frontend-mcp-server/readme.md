@@ -22,6 +22,6 @@
 
 基于 Git 的变更影响点分析
 
-> { "jsonrpc": "2.0", "id": 3, "method": "tools/call", "params": { "name": "impact_analysis_git", "arguments": { "rootDir": "D://OpenSource/react-playground/src/components/advanced-search", "entry": "index.jsx"} } }
+> { "jsonrpc": "2.0", "id": 3, "method": "tools/call", "params": { "name": "impact_analysis_git", "arguments": { "rootDir": "D://OpenSource/react-playground/src/components/k-chart", "entry": "index.jsx", "gitRootDir": "D://OpenSource/react-playground"} } }
 
 > { "jsonrpc": "2.0", "id": 3, "method": "tools/call", "params": { "name": "impact_analysis_git", "arguments": { "rootDir": "D://OpenSource/react-playground/src/components/k-chart", "entry": "index.jsx"} } }

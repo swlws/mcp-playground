@@ -62,10 +62,11 @@ export const tools = [
       properties: {
         rootDir: { type: 'string' },
         entry: { type: 'string' },
+        gitRootDir: { type: 'string' },
         base: { type: 'string' },
         head: { type: 'string' },
       },
-      required: ['rootDir', 'entry'],
+      required: ['rootDir', 'entry', 'gitRootDir'],
     },
   },
 ];

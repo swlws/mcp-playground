@@ -2,9 +2,10 @@ import path from 'path';
 import { analyzeProject } from '../analyzer/project.mjs';
 import { buildReverseGraph } from '../analyzer/reverseGraph.mjs';
 import { analyzeImpact } from '../analyzer/impact.mjs';
+import { toDoubleSlashPosixPath } from '../utils/path.mjs';
 
 export async function impactAnalysisTool({ rootDir, entry, changedFile }) {
-  changedFile = path.resolve(changedFile);
+  changedFile = toDoubleSlashPosixPath(changedFile);
 
   const graph = analyzeProject(rootDir, entry);
 

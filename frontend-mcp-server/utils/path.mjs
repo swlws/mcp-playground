@@ -16,3 +16,12 @@ export function toDoubleSlashPosixPath(inputPath) {
 
   return posixPath;
 }
+
+// const set = new Set();
+// const winPath = 'D:\\xxx\\yyy\\zzz.js';
+// const unixPath = '/aaa/bbb/ccc.js';
+// set.add(winPath);
+// set.add(toDoubleSlashPosixPath(winPath));
+// set.add(unixPath);
+// set.add(toDoubleSlashPosixPath(unixPath));
+// console.log(set);

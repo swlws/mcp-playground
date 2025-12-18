@@ -7,7 +7,6 @@ export function analyzeImpact(reverseGraph, changedFile) {
     const [current, path] = queue.shift();
 
     const parents = reverseGraph.get(current);
-    console.log('parents', parents);
     if (!parents) continue;
 
     for (const parent of parents) {

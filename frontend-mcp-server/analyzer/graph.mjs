@@ -1,3 +1,5 @@
+import { toDoubleSlashPosixPath } from '../utils/path.mjs';
+
 // analyzer/graph.mjs
 export function createGraph() {
   return {
@@ -7,6 +9,9 @@ export function createGraph() {
 }
 
 export function addEdge(graph, from, to) {
+  from = toDoubleSlashPosixPath(from);
+  to = toDoubleSlashPosixPath(to);
+
   graph.nodes.add(from);
   graph.nodes.add(to);
 
