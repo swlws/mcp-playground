@@ -1,19 +1,22 @@
-import { analyzeProject } from '../analyze-project/project.mjs';
-import { getChangedFiles } from '../impact-analysis-git/git-diff.mjs';
-import { analyzeGitImpact } from '../impact-analysis-git/impact-git.mjs';
+import { ENUM_TOOL_NAMES } from '../../tools/index.mjs';
+import { getChangedFiles } from './git-diff.mjs';
+import { analyzeGitImpact } from './impact-git.mjs';
 
-export async function impactAnalysisGitTool({
-  rootDir,
-  entry,
-  gitRootDir,
-  base = 'HEAD~1',
-  head = 'HEAD',
-}) {
+export async function impactAnalysisGitTool(
+  { rootDir, entry, gitRootDir, base = 'HEAD~1', head = 'HEAD' },
+  ctx
+) {
   const changedFiles = getChangedFiles(gitRootDir, base, head);
 
-  const graph = analyzeProject(rootDir, entry);
+  const projectInfo = await ctx.rpc.call(ENUM_TOOL_NAMES.ANALYZE_PROJECT, {
+    rootDir,
+    entry,
+  });
+  const {
+    json: { edges },
+  } = projectInfo.content[0];
 
-  const impact = analyzeGitImpact(graph, changedFiles);
+  const impact = analyzeGitImpact(edges, changedFiles);
 
   return {
     content: [
