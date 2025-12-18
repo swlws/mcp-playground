@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "min-mcp": "node min-mcp/index.mjs",
-    "fe-mcp": "node frontend-mcp-server/index.mjs"
+    "fe-mcp": "node frontend-mcp-server/index.mjs",
+    "fe-mcp:test": "node frontend-mcp-server/__test__.mjs"
   },
   "repository": {
     "type": "git",
