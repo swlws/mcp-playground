@@ -1,8 +1,8 @@
-import { buildReverseGraph } from './reverse-graph.mjs';
 import { analyzeImpact } from './impact.mjs';
 import { toDoubleSlashPosixPath } from '../../utils/path.mjs';
 import { ENUM_TOOL_NAMES } from '../../tools/enum.mjs';
 import { ctxRpcCall } from '../../utils/ctx-rpc-call.mjs';
+import { buildReverseEdges } from '../../utils/build-reverse-edges.mjs';
 
 export async function impactAnalysisTool({ rootDir, entry, changedFile }, ctx) {
   changedFile = toDoubleSlashPosixPath(changedFile);
@@ -12,7 +12,7 @@ export async function impactAnalysisTool({ rootDir, entry, changedFile }, ctx) {
     entry,
   });
 
-  const reverseGraph = buildReverseGraph(edges);
+  const reverseGraph = buildReverseEdges(edges);
 
   const result = analyzeImpact(reverseGraph, changedFile);
 

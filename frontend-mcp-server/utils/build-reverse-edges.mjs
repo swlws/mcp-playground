@@ -1,4 +1,4 @@
-export function buildReverseGraph(edges) {
+export function buildReverseEdges(edges) {
   const reverse = new Map();
 
   for (const { from, to } of edges) {

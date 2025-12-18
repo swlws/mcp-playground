@@ -1,8 +1,8 @@
+import { buildReverseEdges } from '../../utils/build-reverse-edges.mjs';
 import { analyzeImpact } from '../impact-analysis/impact.mjs';
-import { buildReverseGraph } from '../impact-analysis/reverse-graph.mjs';
 
 export function analyzeGitImpact(edges, changedFiles) {
-  const reverseGraph = buildReverseGraph(edges);
+  const reverseGraph = buildReverseEdges(edges);
 
   const impactedSet = new Set();
   const impactDetails = [];
