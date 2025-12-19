@@ -5,11 +5,24 @@ import { capabilities } from './capabilities.mjs';
 class ToolDispatcher {
   constructor() {
     this.pending = new Map();
+    this._cachedToolMap = new Map();
+  }
 
-    this.toolMap = tools.reduce((acc, tool) => {
-      acc[tool.name] = tool;
-      return acc;
-    }, {});
+  /** 获取工具 */
+  getTool(toolName) {
+    const cache = this._cachedToolMap;
+    if (cache.has(toolName)) {
+      return cache.get(toolName);
+    }
+
+    for (const tool of tools) {
+      if (tool.name === toolName) {
+        cache.set(toolName, tool);
+        return tool;
+      }
+    }
+
+    return null;
   }
 
   /** MCP 对外入口 */
@@ -19,7 +32,7 @@ class ToolDispatcher {
 
   /** 内部 RPC 调用 */
   async callTool(toolName, args) {
-    const tool = this.toolMap[toolName];
+    const tool = this.getTool(toolName);
     if (!tool) {
       throw new Error(`Tool not found: ${toolName}`);
     }

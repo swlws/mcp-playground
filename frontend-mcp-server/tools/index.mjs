@@ -3,7 +3,6 @@ import { analyzeHubsTool } from '../tool-set/analyze-hubs/index.mjs';
 import { analyzeProjectTool } from '../tool-set/analyze-project/index.mjs';
 import { impactAnalysisTool } from '../tool-set/impact-analysis/index.mjs';
 import { impactAnalysisGitTool } from '../tool-set/impact-analysis-git/index.mjs';
-import { CodeAnalysisAgent } from '../agent/code-analysis-agent.mjs';
 
 import { ENUM_TOOL_NAMES } from './enum.mjs';
 
@@ -77,20 +76,15 @@ export const tools = [
     },
     handler: impactAnalysisGitTool,
   },
-  {
-    name: ENUM_TOOL_NAMES.ANALYZE_CODEBASE,
-    description: 'Analyze frontend codebase',
-    inputSchema: {
-      type: 'object',
-      properties: {
-        rootDir: { type: 'string' },
-        entry: { type: 'string' },
-      },
-      required: ['rootDir', 'entry'],
-    },
-    async handler(args, ctx) {
-      const agent = new CodeAnalysisAgent({ ctx });
-      return agent.run(args);
-    },
-  },
 ];
+
+export function registerTool(toolConfig = {}) {
+  const { name } = toolConfig;
+
+  const tool = tools.find((tool) => tool.name === name);
+  if (tool) return;
+
+  tools.push(toolConfig);
+  const key = name.toUpperCase();
+  ENUM_TOOL_NAMES[key] = name;
+}
