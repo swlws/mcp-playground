@@ -69,7 +69,7 @@ async function handleMessage(message) {
             version: '0.1.0',
           },
           capabilities: {
-            tools: {},
+            tools: tools,
             resources: {},
             prompts: {},
           },
