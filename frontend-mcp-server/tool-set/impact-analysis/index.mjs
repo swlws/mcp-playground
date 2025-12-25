@@ -16,17 +16,17 @@ export async function impactAnalysisTool({ rootDir, entry, changedFile }, ctx) {
 
   const result = analyzeImpact(reverseGraph, changedFile);
 
+  const data = {
+    changedFile,
+    impactedFiles: result.impactedFiles,
+    impactPaths: result.paths,
+    impactLevel: classifyImpact(result.impactedFiles.length),
+  };
+
   return {
     content: [
-      {
-        type: 'json',
-        json: {
-          changedFile,
-          impactedFiles: result.impactedFiles,
-          impactPaths: result.paths,
-          impactLevel: classifyImpact(result.impactedFiles.length),
-        },
-      },
+      { type: 'json', json: data },
+      { type: 'text', text: JSON.stringify(data) },
     ],
   };
 }

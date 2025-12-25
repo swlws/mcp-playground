@@ -14,15 +14,12 @@ export async function analyzeHubsTool({ rootDir, entry, topN = 10 }, ctx) {
 
   const hubs = analyzeHubs(nodes, edges).slice(0, topN);
 
+  const data = { topN, hubs };
+
   return {
     content: [
-      {
-        type: 'json',
-        json: {
-          topN,
-          hubs,
-        },
-      },
+      { type: 'json', json: data },
+      { type: 'text', text: JSON.stringify(data) },
     ],
   };
 }

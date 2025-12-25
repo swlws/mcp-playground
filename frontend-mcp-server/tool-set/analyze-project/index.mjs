@@ -5,19 +5,19 @@ export async function analyzeProjectTool({ rootDir, entry }) {
   const graph = analyzeProject(rootDir, entry);
   const cycles = detectCycles(graph);
 
+  const data = {
+    nodes: [...graph.nodes],
+    edges: [...graph.edges.entries()].map(([from, tos]) => ({
+      from,
+      to: [...tos],
+    })),
+    cycles,
+  };
+
   return {
     content: [
-      {
-        type: 'json',
-        json: {
-          nodes: [...graph.nodes],
-          edges: [...graph.edges.entries()].map(([from, tos]) => ({
-            from,
-            to: [...tos],
-          })),
-          cycles,
-        },
-      },
+      { type: 'json', json: data },
+      { type: 'text', text: JSON.stringify(data) },
     ],
   };
 }

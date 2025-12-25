@@ -16,22 +16,22 @@ export async function impactAnalysisGitTool(
 
   const impact = analyzeGitImpact(edges, changedFiles);
 
+  const data = {
+    base,
+    head,
+    changedFiles,
+    impactedFiles: impact.impactedFiles,
+    impactLevel: classifyImpact(
+      changedFiles.length,
+      impact.impactedFiles.length
+    ),
+    details: impact.details,
+  };
+
   return {
     content: [
-      {
-        type: 'json',
-        json: {
-          base,
-          head,
-          changedFiles,
-          impactedFiles: impact.impactedFiles,
-          impactLevel: classifyImpact(
-            changedFiles.length,
-            impact.impactedFiles.length
-          ),
-          details: impact.details,
-        },
-      },
+      { type: 'json', json: data },
+      { type: 'text', text: JSON.stringify(data) },
     ],
   };
 }
