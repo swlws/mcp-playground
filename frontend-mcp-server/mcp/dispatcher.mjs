@@ -1,7 +1,7 @@
 import { tools } from '../tools/index.mjs';
 import { readResource } from '../resources/index.mjs';
 import { capabilities } from './capabilities.mjs';
-import { appendLogToFile } from '../utils/log.mjs';
+import { appendErrorLogToFile, appendInfoLogToFile } from '../utils/log.mjs';
 
 class ToolDispatcher {
   constructor() {
@@ -54,9 +54,11 @@ class ToolDispatcher {
 const toolDispatcher = new ToolDispatcher();
 
 export async function dispatch({ id, method, params }) {
+  appendInfoLogToFile({ id, method, params });
+
   try {
     if (method === 'initialize') {
-      return {
+      const result = {
         jsonrpc: '2.0',
         id,
         result: {
@@ -65,6 +67,10 @@ export async function dispatch({ id, method, params }) {
           capabilities,
         },
       };
+
+      appendInfoLogToFile(result);
+
+      return result;
     }
 
     if (method === 'tools/list') {
@@ -72,38 +78,43 @@ export async function dispatch({ id, method, params }) {
     }
 
     if (method === 'tools/call') {
-      appendLogToFile({ id, method, params });
-
       const result = {
         jsonrpc: '2.0',
         id,
         result: await toolDispatcher.handleMcpCall(params),
       };
 
-      appendLogToFile(result);
+      appendInfoLogToFile(result);
 
       return result;
     }
 
     if (method === 'resources/read') {
-      return {
+      const result = {
         jsonrpc: '2.0',
         id,
         result: await readResource(params.uri),
       };
+
+      appendInfoLogToFile(result);
+
+      return result;
     }
 
     return error(id, -32601, 'Method not found');
   } catch (e) {
-    console.error(e);
     return error(id, -32000, e.message);
   }
 }
 
 function error(id, code, message) {
-  return {
+  const info = {
     jsonrpc: '2.0',
     id,
     error: { code, message },
   };
+
+  appendErrorLogToFile(info);
+
+  return info;
 }

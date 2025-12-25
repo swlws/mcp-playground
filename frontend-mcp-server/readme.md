@@ -1,5 +1,9 @@
 # frontend-mcp-server
 
+## JSON-RPC 协议
+
+- <https://www.jsonrpc.org/specification>
+
 ## initialize
 
 > { "jsonrpc": "2.0", "id": 0, "method": "initialize", "params": { "rootDir": "D://OpenSource/mcp-playground/frontend-mcp-server" } }
