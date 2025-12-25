@@ -9,7 +9,8 @@ export async function analyzeFile({ filePath }) {
     content: [
       {
         type: 'json',
-        json: data,
+        json: { ...data },
+        data: JSON.stringify(data),
       },
     ],
   };

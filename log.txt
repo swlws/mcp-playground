@@ -1,1 +1,74 @@
-{"jsonrpc":"2.0","id":4,"result":{"content":[{"type":"json","json":{"filePath":"d:/KyeCode/kye-appcenter-sdk/src/lib/save-event.ts","imports":["rrweb","./db-manager","./db-operation-queue","../types","../config"],"exports":[],"hooks":[],"functions":["tryAddFullSnapshotEvent","saveEvent"]}}]}}
+{
+  "jsonrpc": "2.0",
+  "id": 3,
+  "result": {
+    "content": [
+      {
+        "type": "json",
+        "json": {
+          "filePath": "d:/KyeCode/kye-appcenter-sdk/src/lib/index.ts",
+          "imports": [
+            "es6-promise",
+            "../types",
+            "../config",
+            "./save-event",
+            "./report-event"
+          ],
+          "exports": [
+            "updateConfig",
+            "eventWrite",
+            "eventReport"
+          ],
+          "hooks": [],
+          "functions": [
+            "logAsync",
+            "logIfLoaded",
+            "onWindowLoad",
+            "updateConfig",
+            "eventWrite",
+            "eventReport"
+          ]
+        },
+        "data": {
+          "filePath": "d:/KyeCode/kye-appcenter-sdk/src/lib/index.ts",
+          "imports": [
+            "es6-promise",
+            "../types",
+            "../config",
+            "./save-event",
+            "./report-event"
+          ],
+          "exports": [
+            "updateConfig",
+            "eventWrite",
+            "eventReport"
+          ],
+          "hooks": [],
+          "functions": [
+            "logAsync",
+            "logIfLoaded",
+            "onWindowLoad",
+            "updateConfig",
+            "eventWrite",
+            "eventReport"
+          ]
+        }
+      }
+    ]
+  }
+}
+
+{"id":5,"method":"tools/call","params":{"name":"analyze_file","arguments":{"filePath":"d:/KyeCode/kye-appcenter-sdk/src/lib/index.ts"},"_meta":{"progressToken":"2f9528c9-00e9-48f2-a435-99ba02bbd001","vscode.conversationId":"e1aa904c-d267-45bc-ae9a-fa5d7247a4f4","vscode.requestId":"cdcac213-baf2-4f91-8149-8fc809efcd93"}}}
+
+{"jsonrpc":"2.0","id":5,"result":{"content":[{"type":"json","json":{"filePath":"d:/KyeCode/kye-appcenter-sdk/src/lib/index.ts","imports":["es6-promise","../types","../config","./save-event","./report-event"],"exports":["updateConfig","eventWrite","eventReport"],"hooks":[],"functions":["logAsync","logIfLoaded","onWindowLoad","updateConfig","eventWrite","eventReport"]},"data":{"filePath":"d:/KyeCode/kye-appcenter-sdk/src/lib/index.ts","imports":["es6-promise","../types","../config","./save-event","./report-event"],"exports":["updateConfig","eventWrite","eventReport"],"hooks":[],"functions":["logAsync","logIfLoaded","onWindowLoad","updateConfig","eventWrite","eventReport"]}}]}}
+{"id":3,"method":"tools/call","params":{"name":"analyze_file","arguments":{"filePath":"d:/KyeCode/kye-appcenter-sdk/src/lib/index.ts"},"_meta":{"progressToken":"ee267cdd-ba43-4abd-acc5-88787e58d911","vscode.conversationId":"e1aa904c-d267-45bc-ae9a-fa5d7247a4f4","vscode.requestId":"04e6c2ab-1060-4691-ba85-83cfc8b671ed"}}}
+{"jsonrpc":"2.0","id":3,"result":{"content":[{"type":"json","json":{"filePath":"d:/KyeCode/kye-appcenter-sdk/src/lib/index.ts","imports":["es6-promise","../types","../config","./save-event","./report-event"],"exports":["updateConfig","eventWrite","eventReport"],"hooks":[],"functions":["logAsync","logIfLoaded","onWindowLoad","updateConfig","eventWrite","eventReport"]},"data":{"filePath":"d:/KyeCode/kye-appcenter-sdk/src/lib/index.ts","imports":["es6-promise","../types","../config","./save-event","./report-event"],"exports":["updateConfig","eventWrite","eventReport"],"hooks":[],"functions":["logAsync","logIfLoaded","onWindowLoad","updateConfig","eventWrite","eventReport"]}}]},"_meta":{"progressToken":"ee267cdd-ba43-4abd-acc5-88787e58d911","vscode.conversationId":"e1aa904c-d267-45bc-ae9a-fa5d7247a4f4","vscode.requestId":"04e6c2ab-1060-4691-ba85-83cfc8b671ed"}}
+{"id":3,"method":"tools/call","params":{"name":"analyze_file","arguments":{"filePath":"d:\\KyeCode\\kye-appcenter-sdk\\src\\lib\\index.ts"},"_meta":{"progressToken":"8b1b4a88-a69e-495a-962e-bb69c0f0e6e3","vscode.conversationId":"ea4a0e1b-c09e-4d28-8387-b81f3c2dda1b","vscode.requestId":"0e45cf43-7d77-490c-8046-4977865db881"}}}
+{"jsonrpc":"2.0","id":3,"result":{"content":[{"type":"json","json":{"filePath":"d:\\KyeCode\\kye-appcenter-sdk\\src\\lib\\index.ts","imports":["es6-promise","../types","../config","./save-event","./report-event"],"exports":["updateConfig","eventWrite","eventReport"],"hooks":[],"functions":["logAsync","logIfLoaded","onWindowLoad","updateConfig","eventWrite","eventReport"]},"data":"{\"filePath\":\"d:\\\\KyeCode\\\\kye-appcenter-sdk\\\\src\\\\lib\\\\index.ts\",\"imports\":[\"es6-promise\",\"../types\",\"../config\",\"./save-event\",\"./report-event\"],\"exports\":[\"updateConfig\",\"eventWrite\",\"eventReport\"],\"hooks\":[],\"functions\":[\"logAsync\",\"logIfLoaded\",\"onWindowLoad\",\"updateConfig\",\"eventWrite\",\"eventReport\"]}"}]}}
+{"id":4,"method":"tools/call","params":{"name":"analyze_file","arguments":{"filePath":"src/lib/index.ts"},"_meta":{"progressToken":"68d85e26-86cd-4ca6-9fa3-3949292cec2b","vscode.conversationId":"ea4a0e1b-c09e-4d28-8387-b81f3c2dda1b","vscode.requestId":"0e45cf43-7d77-490c-8046-4977865db881"}}}
+{"id":5,"method":"tools/call","params":{"name":"analyze_file","arguments":{"filePath":"d:/KyeCode/kye-appcenter-sdk/src/lib/index.ts"},"_meta":{"progressToken":"1faf1914-0073-4194-833f-d75f4fcc2caf","vscode.conversationId":"ea4a0e1b-c09e-4d28-8387-b81f3c2dda1b","vscode.requestId":"0e45cf43-7d77-490c-8046-4977865db881"}}}
+{"jsonrpc":"2.0","id":5,"result":{"content":[{"type":"json","json":{"filePath":"d:/KyeCode/kye-appcenter-sdk/src/lib/index.ts","imports":["es6-promise","../types","../config","./save-event","./report-event"],"exports":["updateConfig","eventWrite","eventReport"],"hooks":[],"functions":["logAsync","logIfLoaded","onWindowLoad","updateConfig","eventWrite","eventReport"]},"data":"{\"filePath\":\"d:/KyeCode/kye-appcenter-sdk/src/lib/index.ts\",\"imports\":[\"es6-promise\",\"../types\",\"../config\",\"./save-event\",\"./report-event\"],\"exports\":[\"updateConfig\",\"eventWrite\",\"eventReport\"],\"hooks\":[],\"functions\":[\"logAsync\",\"logIfLoaded\",\"onWindowLoad\",\"updateConfig\",\"eventWrite\",\"eventReport\"]}"}]}}
+{"id":3,"method":"tools/call","params":{"name":"analyze_file","arguments":{"filePath":"d:/KyeCode/kye-appcenter-sdk/src/lib/index.ts"},"_meta":{"progressToken":"d4ab85d4-5023-4906-ba7b-c5044af78abd","vscode.conversationId":"ea4a0e1b-c09e-4d28-8387-b81f3c2dda1b","vscode.requestId":"db29eb16-883c-4ce0-be04-dad8fe297d7c"}}}
+{"jsonrpc":"2.0","id":3,"result":{"content":[{"type":"json","json":{"filePath":"d:/KyeCode/kye-appcenter-sdk/src/lib/index.ts","imports":["es6-promise","../types","../config","./save-event","./report-event"],"exports":["updateConfig","eventWrite","eventReport"],"hooks":[],"functions":["logAsync","logIfLoaded","onWindowLoad","updateConfig","eventWrite","eventReport"]},"data":"{\"filePath\":\"d:/KyeCode/kye-appcenter-sdk/src/lib/index.ts\",\"imports\":[\"es6-promise\",\"../types\",\"../config\",\"./save-event\",\"./report-event\"],\"exports\":[\"updateConfig\",\"eventWrite\",\"eventReport\"],\"hooks\":[],\"functions\":[\"logAsync\",\"logIfLoaded\",\"onWindowLoad\",\"updateConfig\",\"eventWrite\",\"eventReport\"]}"}]}}
+{"id":3,"method":"tools/call","params":{"name":"analyze_file","arguments":{"filePath":"d:/KyeCode/kye-appcenter-sdk/src/lib/index.ts"},"_meta":{"progressToken":"576c4476-8d5d-4e0b-b372-b3d741466f4f","vscode.conversationId":"ea4a0e1b-c09e-4d28-8387-b81f3c2dda1b","vscode.requestId":"17f4b116-7f86-4cc8-93ea-d7b2a5016a05"}}}
+{"jsonrpc":"2.0","id":3,"result":{"content":[{"type":"json","json":{"filePath":"d:/KyeCode/kye-appcenter-sdk/src/lib/index.ts","imports":["es6-promise","../types","../config","./save-event","./report-event"],"exports":["updateConfig","eventWrite","eventReport"],"hooks":[],"functions":["logAsync","logIfLoaded","onWindowLoad","updateConfig","eventWrite","eventReport"]},"data":"{\"filePath\":\"d:/KyeCode/kye-appcenter-sdk/src/lib/index.ts\",\"imports\":[\"es6-promise\",\"../types\",\"../config\",\"./save-event\",\"./report-event\"],\"exports\":[\"updateConfig\",\"eventWrite\",\"eventReport\"],\"hooks\":[],\"functions\":[\"logAsync\",\"logIfLoaded\",\"onWindowLoad\",\"updateConfig\",\"eventWrite\",\"eventReport\"]}"}]}}
