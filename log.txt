@@ -1,0 +1,1 @@
+{"jsonrpc":"2.0","id":4,"result":{"content":[{"type":"json","json":{"filePath":"d:/KyeCode/kye-appcenter-sdk/src/lib/save-event.ts","imports":["rrweb","./db-manager","./db-operation-queue","../types","../config"],"exports":[],"hooks":[],"functions":["tryAddFullSnapshotEvent","saveEvent"]}}]}}

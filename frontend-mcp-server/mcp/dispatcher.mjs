@@ -1,6 +1,8 @@
 import { tools } from '../tools/index.mjs';
 import { readResource } from '../resources/index.mjs';
 import { capabilities } from './capabilities.mjs';
+import { emit } from '../sse/event-emitter.mjs';
+import { logToFile } from '../utils/log.mjs';
 
 class ToolDispatcher {
   constructor() {
@@ -71,11 +73,17 @@ export async function dispatch({ id, method, params }) {
     }
 
     if (method === 'tools/call') {
-      return {
+      const result = {
         jsonrpc: '2.0',
         id,
         result: await toolDispatcher.handleMcpCall(params),
       };
+
+      logToFile(result);
+
+      emit(params.name, result);
+
+      return result;
     }
 
     if (method === 'resources/read') {
