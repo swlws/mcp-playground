@@ -2,10 +2,6 @@
 import readline from 'node:readline';
 import { dispatch } from './mcp/dispatcher.mjs';
 
-// ⚠️ index.mjs 只做一件事：
-// stdin → dispatch → stdout
-// 不做任何协议判断、不主动输出任何 JSON
-
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
