@@ -57,8 +57,9 @@ export async function dispatch({ id, method, params }) {
   appendInfoLogToFile({ id, method, params });
 
   try {
+    let result;
     if (method === 'initialize') {
-      const result = {
+      result = {
         jsonrpc: '2.0',
         id,
         result: {
@@ -67,41 +68,34 @@ export async function dispatch({ id, method, params }) {
           capabilities,
         },
       };
-
-      appendInfoLogToFile(result);
-
-      return result;
     }
 
     if (method === 'tools/list') {
-      return { jsonrpc: '2.0', id, result: { tools } };
+      result = { jsonrpc: '2.0', id, result: { tools } };
     }
 
     if (method === 'tools/call') {
-      const result = {
+      result = {
         jsonrpc: '2.0',
         id,
         result: await toolDispatcher.handleMcpCall(params),
       };
-
-      appendInfoLogToFile(result);
-
-      return result;
     }
 
     if (method === 'resources/read') {
-      const result = {
+      result = {
         jsonrpc: '2.0',
         id,
         result: await readResource(params.uri),
       };
+    }
 
+    if (result) {
       appendInfoLogToFile(result);
-
       return result;
     }
 
-    return error(id, -32601, 'Method not found');
+    return error(id, -32601, `Method ${method} not found`);
   } catch (e) {
     return error(id, -32000, e.message);
   }
