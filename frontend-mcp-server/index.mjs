@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import readline from 'node:readline';
-import { dispatch } from './mcp/dispatcher.mjs';
+import { dispatch } from './mcp/dispatcher/index.mjs';
 
 const rl = readline.createInterface({
   input: process.stdin,
