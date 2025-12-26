@@ -15,3 +15,6 @@ const data = User.parse(input);
 
 // so you can use it with confidence :)
 console.log(data.name);
+
+const a = z.string().length(2).describe('Two-letter state code (e.g. CA, NY)');
+console.log(JSON.stringify(a));

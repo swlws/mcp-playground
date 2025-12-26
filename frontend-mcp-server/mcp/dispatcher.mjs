@@ -51,6 +51,18 @@ class ToolDispatcher {
   }
 }
 
+const ENUM_METHOD = {
+  INITIALIZE: 'initialize',
+  NOTIFICATIONS_INITIALIZED: 'notifications/initialized',
+  TOOLS_LIST: 'tools/list',
+  TOOLS_CALL: 'tools/call',
+  RESOURCES_READ: 'resources/read',
+};
+
+const factory = {
+  [ENUM_METHOD.INITIALIZE]: {},
+};
+
 const toolDispatcher = new ToolDispatcher();
 
 export async function dispatch({ id, method, params }) {
@@ -68,6 +80,10 @@ export async function dispatch({ id, method, params }) {
           capabilities,
         },
       };
+    }
+
+    if (method === 'notifications/initialized') {
+      result = { jsonrpc: '2.0', id, result: {} };
     }
 
     if (method === 'tools/list') {
