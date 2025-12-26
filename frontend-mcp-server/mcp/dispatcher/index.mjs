@@ -3,6 +3,7 @@ import { readResource } from '../../resources/index.mjs';
 import { capabilities } from '../capabilities.mjs';
 import { appendErrorLogToFile, appendInfoLogToFile } from '../../utils/log.mjs';
 import { ENUM_METHOD } from './enum.mjs';
+import { ToolDispatcher } from './tool-dispatcher.mjs';
 
 const toolDispatcher = new ToolDispatcher();
 
@@ -17,9 +18,6 @@ const factory = {
         capabilities,
       },
     };
-  },
-  [ENUM_METHOD.NOTIFICATIONS_INITIALIZED]: ({ id, params }) => {
-    return { jsonrpc: '2.0', id, result: {} };
   },
   [ENUM_METHOD.TOOLS_LIST]: ({ id, params }) => {
     return { jsonrpc: '2.0', id, result: { tools } };
@@ -38,6 +36,15 @@ const factory = {
       result: await readResource(params.uri),
     };
   },
+
+  // ----------------- 通知类 -------------------
+
+  [ENUM_METHOD.NOTIFICATIONS_INITIALIZED]: ({ id, params }) => {
+    return { jsonrpc: '2.0', id, result: {} };
+  },
+  [ENUM_METHOD.NOTIFICATIONS_TOOLS_LIST_CHANGED]: ({ id, params }) => {
+    return { jsonrpc: '2.0', id, result: {} };
+  },
 };
 
 export async function dispatch({ id, method, params }) {
@@ -54,6 +61,7 @@ export async function dispatch({ id, method, params }) {
 
     return error(id, -32601, `Method ${method} not found`);
   } catch (e) {
+    console.error(e);
     return error(id, -32000, e.message);
   }
 }
