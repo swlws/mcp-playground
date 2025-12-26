@@ -9,7 +9,9 @@ import { ENUM_TOOL_NAMES } from './enum.mjs';
 export const tools = [
   {
     name: ENUM_TOOL_NAMES.ANALYZE_FILE,
-    description: 'Analyze frontend source file',
+    title: '分析文件',
+    description:
+      'Analyze frontend source file, and return a JSON object which contains the imported modules、functions、etc.',
     inputSchema: {
       type: 'object',
       properties: {
