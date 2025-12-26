@@ -57,53 +57,52 @@ const ENUM_METHOD = {
   TOOLS_LIST: 'tools/list',
   TOOLS_CALL: 'tools/call',
   RESOURCES_READ: 'resources/read',
-};
-
-const factory = {
-  [ENUM_METHOD.INITIALIZE]: {},
+  RESOURCES_LIST: 'resources/list',
 };
 
 const toolDispatcher = new ToolDispatcher();
+
+const factory = {
+  [ENUM_METHOD.INITIALIZE]: ({ id, params }) => {
+    return {
+      jsonrpc: '2.0',
+      id,
+      result: {
+        protocolVersion: '2024-11-05',
+        serverInfo: { name: 'frontend-mcp', version: '0.1.0' },
+        capabilities,
+      },
+    };
+  },
+  [ENUM_METHOD.NOTIFICATIONS_INITIALIZED]: ({ id, params }) => {
+    return { jsonrpc: '2.0', id, result: {} };
+  },
+  [ENUM_METHOD.TOOLS_LIST]: ({ id, params }) => {
+    return { jsonrpc: '2.0', id, result: { tools } };
+  },
+  [ENUM_METHOD.TOOLS_CALL]: async ({ id, params }) => {
+    return {
+      jsonrpc: '2.0',
+      id,
+      result: await toolDispatcher.handleMcpCall(params),
+    };
+  },
+  [ENUM_METHOD.RESOURCES_READ]: async ({ id, params }) => {
+    return {
+      jsonrpc: '2.0',
+      id,
+      result: await readResource(params.uri),
+    };
+  },
+};
 
 export async function dispatch({ id, method, params }) {
   appendInfoLogToFile({ id, method, params });
 
   try {
     let result;
-    if (method === 'initialize') {
-      result = {
-        jsonrpc: '2.0',
-        id,
-        result: {
-          protocolVersion: '2024-11-05',
-          serverInfo: { name: 'frontend-mcp', version: '0.1.0' },
-          capabilities,
-        },
-      };
-    }
-
-    if (method === 'notifications/initialized') {
-      result = { jsonrpc: '2.0', id, result: {} };
-    }
-
-    if (method === 'tools/list') {
-      result = { jsonrpc: '2.0', id, result: { tools } };
-    }
-
-    if (method === 'tools/call') {
-      result = {
-        jsonrpc: '2.0',
-        id,
-        result: await toolDispatcher.handleMcpCall(params),
-      };
-    }
-
-    if (method === 'resources/read') {
-      result = {
-        jsonrpc: '2.0',
-        id,
-        result: await readResource(params.uri),
-      };
+    if (factory[method]) {
+      result = await factory[method]({ id, method, params });
     }
 
     if (result) {
