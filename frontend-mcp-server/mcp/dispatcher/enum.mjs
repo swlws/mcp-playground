@@ -4,6 +4,8 @@ export const ENUM_METHOD = {
   TOOLS_CALL: 'tools/call',
   RESOURCES_READ: 'resources/read',
   RESOURCES_LIST: 'resources/list',
+  PROMPTS_LIST: 'prompts/list',
+  PROMPTS_GET: 'prompts/get',
 
   // 通知类. 客户端通知服务端事件，客户端初始化已完成
   NOTIFICATIONS_INITIALIZED: 'notifications/initialized',
