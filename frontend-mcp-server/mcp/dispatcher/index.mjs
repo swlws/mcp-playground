@@ -4,8 +4,11 @@ import { capabilities } from '../capabilities.mjs';
 import { appendErrorLogToFile, appendInfoLogToFile } from '../../utils/log.mjs';
 import { ENUM_METHOD } from './enum.mjs';
 import { ToolDispatcher } from './tool-dispatcher.mjs';
+import { PromptDispatcher } from './prompt-dispatcher.mjs';
+import { listPrompts } from '../../prompts/index.mjs';
 
 const toolDispatcher = new ToolDispatcher();
+const promptDispatcher = new PromptDispatcher();
 
 const factory = {
   [ENUM_METHOD.INITIALIZE]: ({ id, params }) => {
@@ -34,6 +37,17 @@ const factory = {
       jsonrpc: '2.0',
       id,
       result: await readResource(params.uri),
+    };
+  },
+  [ENUM_METHOD.PROMPTS_LIST]: ({ id, params }) => {
+    const prompts = listPrompts();
+    return { jsonrpc: '2.0', id, result: { prompts } };
+  },
+  [ENUM_METHOD.PROMPTS_GET]: ({ id, params }) => {
+    return {
+      jsonrpc: '2.0',
+      id,
+      result: promptDispatcher.call(params.id),
     };
   },
 

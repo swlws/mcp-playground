@@ -1,4 +1,9 @@
-import { dispatch } from './mcp/dispatcher.mjs';
+import { dispatch } from './mcp/dispatcher/index.mjs';
+import { registerPrompt } from './prompts/index.mjs';
+import summarizeProjectPrompt from './prompts/summarize-project.mjs';
+
+// 注冊 summarize_project 提示
+registerPrompt(summarizeProjectPrompt);
 
 const commandList = [
   `{ "jsonrpc": "2.0", "id": 0, "method": "initialize", "params": { "rootDir": "D://OpenSource/mcp-playground/frontend-mcp-server" } }`,
@@ -9,9 +14,8 @@ const commandList = [
   `{ "jsonrpc": "2.0", "id": 5, "method": "tools/call", "params": { "name": "impact_analysis", "arguments": { "rootDir": "D://OpenSource/react-playground/src/components/advanced-search", "entry": "index.jsx", "changedFile": "D://OpenSource/react-playground/src/components/advanced-search/constant.js"} } }`,
   `{ "jsonrpc": "2.0", "id": 6, "method": "tools/call", "params": { "name": "analyze_hubs", "arguments": { "rootDir": "D://OpenSource/react-playground/src/components/advanced-search", "entry": "index.jsx"} } }`,
   `{ "jsonrpc": "2.0", "id": 7, "method": "tools/call", "params": { "name": "impact_analysis_git", "arguments": { "rootDir": "D://OpenSource/react-playground/src/components/k-chart", "entry": "index.jsx", "gitRootDir": "D://OpenSource/react-playground"} } }`,
-  // `{ "jsonrpc": "2.0", "id": 3, "method": "tools/call", "params": { "name": "analyze_codebase", "arguments": { "rootDir": "D://OpenSource/react-playground/src/components/advanced-search", "entry": "index.jsx"} } }`,
-
-  // `{ "jsonrpc": "2.0", "id": 2, "method": "tools/call", "params": { "name": "analyze_file", "arguments": { "filePath": "D://KyeCode/kye-appcenter-sdk/src/lib/index.ts" } } }`,
+  `{ "jsonrpc": "2.0", "id": 8, "method": "prompts/list" }`,
+  `{ "jsonrpc": "2.0", "id": 9, "method": "prompts/get", "params": { "id": "summarize_project" } }`,
 ];
 
 async function runCommand(line) {

@@ -2,6 +2,12 @@
 import readline from 'node:readline';
 import { dispatch } from './mcp/dispatcher/index.mjs';
 
+import { registerPrompt } from './prompts/index.mjs';
+import summarizeProjectPrompt from './prompts/summarize-project.mjs';
+
+// 注冊 summarize_project 提示
+registerPrompt(summarizeProjectPrompt);
+
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
